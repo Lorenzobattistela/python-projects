@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block main %}
+<div class="d-flex justify-content-center container div">
+  <form action="/" , method="POST">
+    <label for="base"></label>
+    <select class="form-select" id="base" name="base">
+      <option value="BRL" name="brl" selected>BRL</option>
+    </select>
+
+    <label for="amount"></label>
+    <input
+      class="form-control"
+      type="number"
+      name="brl_amount"
+      placeholder="Amount"
+    />
+
+    <label for="coin"></label>
+    <select class="form-select" id="abbreviation" name="abbreviation">
+      <option value="" name="disabled" disabled selected></option>
+      {% for name in abbreviations %}
+      <option value="{{ name }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+
+    <div class="container">
+      <button name="submit" type="submit" class="btn btn-primary btn-lg botao">
+        Convert
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
