@@ -1,0 +1,18 @@
+select {
+  padding: 1em;
+  margin: 2em;
+}
+
+.botao {
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
+.form-select {
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
+.div {
+  margin-top: 3em;
+}
