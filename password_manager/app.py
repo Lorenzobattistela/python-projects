@@ -51,6 +51,14 @@ class PasswordManager():
         self.password = os.getenv('pass')
         self.password_check = input('Password: ')
 
+    def display_all(self):
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        c.execute("SELECT * FROM products")
+        passwords = c.fetchall()
+        for password in passwords:
+            print(password[0], ": ", decrypt(password[1]).decode())
+
     def options(self):
         option = input(
             'What do you want to do? \n 1 - Insert a new password \n 2 - Get an old password \n 3 - List all passwords \n 4 - Exit \n')
@@ -83,6 +91,10 @@ if p.check_password():
     elif opt == '2':
         password_encrypted = p.get_password()
         p.display_password(password_encrypted)
+    
+    elif opt == '3':
+        p.display_all()
+
     elif opt == '4':
         exit()
 
